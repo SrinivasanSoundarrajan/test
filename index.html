@@ -24,10 +24,13 @@
 	//Console.Log('Hello {userProfile.displayName} ');
 	//Office.context.mailbox.item.Recipients.getAsync(callback);
 
-  //if (info.host === Office.HostType.Outlook) {
-        item = Office.context.mailbox.item;
-        getAllRecipients();
-    //}
+ // Confirms that the Office.js library is loaded.
+	Office.onReady((info) => {
+		if (info.host === Office.HostType.Outlook) {
+			item = Office.context.mailbox.item;
+			getAllRecipients();
+		}
+	});
   }
   
   // Gets the email addresses of all the recipients of the item being composed.
