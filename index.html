@@ -1,9 +1,24 @@
 <html>
 <head>
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"> </script>
+  <link rel="stylesheet" href="fabric.min.css">
+  <link rel="stylesheet" href="fabric.components.min.css">
 </head>
 <body>
 <h1> Welcome to Addin web </h1>
   <h2> Disclaimer </h2>
+  <button id="run" class="ms-Button"> 
+	<span class="ms-Button-label">Run</span>
+  </button>
 </body>
+
+ <script type="text/javascript">
+  document.getElementById("run").addEventListener("click", run);
+  
+  function run()
+  {
+	const userProfile = Office.context.mailbox.userProfile;
+	Console.Log('Hello {userProfile.displayName} ');
+  }
+  </script>
 </html>
